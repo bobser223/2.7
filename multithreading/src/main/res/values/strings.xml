@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MultithreadingApplication</string>
+    <string name="app_name">Multithreading</string>
     <string name="button">Load data</string>
     <string name="city">City</string>
     <string name="temperature">Temperature</string>
