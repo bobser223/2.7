@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Concurrency"
 include(":multithreading")
+include(":threadshandler")
