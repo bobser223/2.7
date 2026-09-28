@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Multithreading"
+rootProject.name = "Concurrency"
 include(":app")
