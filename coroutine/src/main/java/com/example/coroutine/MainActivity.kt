@@ -23,11 +23,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
+        Log.d(TAG, "loadData: start data loading from the internet...")
 
-        Log.d(TAG, "loadData: start data loading from internet...")
-
-        // TODO:
-
+        TODO("Implement following pipeline")
         // on Start:
             // disable button "load data"
             // show progress bar
@@ -46,7 +44,20 @@ class MainActivity : AppCompatActivity() {
             // enable button "load data"
     }
 
+    private fun loadCity(): String {
+        Thread.sleep(3_000)  // to simulate Long-running operation
+
+        return "Kyiv"
+    }
+
+    private fun loadTemperature(city: String): Int {
+        Thread.sleep(3_000)   // to simulate Long-running operation
+
+        return 15  // Celsius degrees
+    }
+
     companion object {
         val TAG = "XXXX"
     }
+
 }
