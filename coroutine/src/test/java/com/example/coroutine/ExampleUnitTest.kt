@@ -1,4 +1,4 @@
-package com.example.threadshandler
+package com.example.coroutine
 
 import org.junit.Test
 
