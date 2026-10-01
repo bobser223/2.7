@@ -75,7 +75,7 @@
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/button_margin"
+        android:layout_marginBottom="48dp"
         android:text="@string/roll"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
