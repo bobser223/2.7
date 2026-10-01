@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Code Runner 2020</string>
-    <string name="run_code">Run code</string>
+    <string name="app_name">Dice</string>
     <string name="roll_the_dice">Roll the Dice</string>
     <string name="roll">Roll!</string>
 </resources>
