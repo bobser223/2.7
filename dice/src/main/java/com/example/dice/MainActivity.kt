@@ -2,10 +2,14 @@ package com.example.dice
 
 import android.os.Bundle
 import android.widget.ImageView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dice.databinding.ActivityMainBinding
+import kotlin.getValue
 
 class MainActivity : AppCompatActivity() {
+
+    private val viewModel: DiceViewModel by viewModels()
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var imageViews: Array<ImageView>
@@ -23,8 +27,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.rollButton.setOnClickListener {
-            rollTheDice()
+//            rollTheDice()
+            viewModel.rollDice()
         }
+
 
         imageViews = arrayOf(   // Views: dice
             binding.die1,
@@ -33,6 +39,22 @@ class MainActivity : AppCompatActivity() {
             binding.die4,
             binding.die5
         )
+        viewModel.diceValues.observe(this){
+                diceValues ->
+
+            for (i in diceValues.indices) {
+                imageViews[i].setImageResource(
+                    drawables[diceValues[i] - 1]
+                )
+            }
+        }
+
+        viewModel.isRolling.observe(this){
+            isRolling -> binding.rollButton.isEnabled = !isRolling
+        }
+
+
+
 
     }
 
