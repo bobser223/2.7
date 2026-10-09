@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var imageViews: Array<ImageView>
-    private val drawables = arrayOf(  // drawable for the dice
+    private val drawables = arrayOf(
         R.drawable.die_1, R.drawable.die_2,
         R.drawable.die_3, R.drawable.die_4,
         R.drawable.die_5, R.drawable.die_6
@@ -22,26 +22,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Initialize view binding for view object references
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.rollButton.setOnClickListener {
-//            rollTheDice()
             viewModel.rollDice()
         }
 
-
-        imageViews = arrayOf(   // Views: dice
+        imageViews = arrayOf(
             binding.die1,
             binding.die2,
             binding.die3,
             binding.die4,
             binding.die5
         )
-        viewModel.diceValues.observe(this){
-                diceValues ->
 
+        viewModel.diceValues.observe(this) { diceValues ->
             for (i in diceValues.indices) {
                 imageViews[i].setImageResource(
                     drawables[diceValues[i] - 1]
@@ -49,17 +45,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.isRolling.observe(this){
-            isRolling -> binding.rollButton.isEnabled = !isRolling
+        viewModel.buttonText.observe(this) { buttonText ->
+            binding.rollButton.text = buttonText
         }
-
-
-
-
     }
-
-    fun rollTheDice() {
-        TODO("Implement: Start dice rolling")
-    }
-
 }
